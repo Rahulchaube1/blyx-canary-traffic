@@ -1,10 +1,12 @@
 # Canary Traffic
 
-![Package logo](https://github.com/Rahulchaube1/blyx-canary-traffic/raw/v0.1.1/editor/icon.png)
+![Vulturine guineafowl](https://github.com/Rahulchaube1/blyx-canary-traffic/raw/v0.1.2/editor/icon.png)
 
 Gate ordered traffic increases on the health of the current rollout percentage.
 
-Reliability and delivery · framework · 0.1.1
+Reliability and delivery · framework · 0.1.2
+
+Framework bird: Vulturine guineafowl.
 
 ## Drive the workflow
 
@@ -37,11 +39,11 @@ Run `blyxc native-run main.blyx` to reproduce `expected.txt`. Run `blyxc native-
 ## Try the published project
 
 ```sh
-nest demo canary_traffic@0.1.1
+nest demo canary_traffic@0.1.2
 blyxc native-run canary_traffic-demo/main.blyx
 ```
 
-Install with `nest add canary_traffic@0.1.1` and import `vendor::canary_traffic::canary_traffic`.
+Install with `nest add canary_traffic@0.1.2` and import `vendor::canary_traffic::canary_traffic`.
 
 Maintained by Rahul Chaube. [Blyx](https://www.blyx-lang.space) · [GitHub](https://github.com/Rahulchaube1) · [LinkedIn](https://www.linkedin.com/in/rahulchaube1) · [Sponsor](https://github.com/sponsors/Rahulchaube1)
 

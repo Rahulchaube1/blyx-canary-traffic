@@ -2,7 +2,7 @@
   "name": "blyx-canary-traffic",
   "displayName": "Canary Traffic for Blyx",
   "publisher": "RahulChaube",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Gate ordered traffic increases on the health of the current rollout percentage.",
   "license": "MIT",
   "engines": {
