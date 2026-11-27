@@ -1,0 +1,3 @@
+[package]
+name = "canary_traffic"
+version = "0.1.1"

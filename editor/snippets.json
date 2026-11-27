@@ -1,0 +1,27 @@
+{
+  "canary_traffic_start": {
+    "prefix": "canary_traffic_start",
+    "body": "canary_traffic_start()",
+    "description": "Canary Traffic \u00b7 Gate ordered traffic increases on the health of the current rollout percentage."
+  },
+  "canary_traffic_step": {
+    "prefix": "canary_traffic_step",
+    "body": "canary_traffic_step(${1:snapshot}, ${2:event}, ${3:value})",
+    "description": "Canary Traffic \u00b7 Gate ordered traffic increases on the health of the current rollout percentage."
+  },
+  "canary_traffic_command": {
+    "prefix": "canary_traffic_command",
+    "body": "canary_traffic_command(${1:snapshot})",
+    "description": "Canary Traffic \u00b7 Gate ordered traffic increases on the health of the current rollout percentage."
+  },
+  "canary_traffic_replay": {
+    "prefix": "canary_traffic_replay",
+    "body": "canary_traffic_replay(${1:events}, ${2:values})",
+    "description": "Canary Traffic \u00b7 Gate ordered traffic increases on the health of the current rollout percentage."
+  },
+  "Import canary_traffic": {
+    "prefix": "use_canary_traffic",
+    "body": "use vendor::canary_traffic::canary_traffic;",
+    "description": "Import the installed Canary Traffic module"
+  }
+}

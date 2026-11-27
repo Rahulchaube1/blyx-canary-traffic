@@ -1,0 +1,6 @@
+apply_weight
+authorize_ramp
+apply_weight
+reject
+authorize_ramp
+retire_baseline

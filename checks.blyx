@@ -1,0 +1,38 @@
+use std::cli;
+use vendor::canary_traffic::canary_traffic;
+
+fn main() {
+    let mut state = canary_traffic_start();
+    state = canary_traffic_step(state, "launch", 5.0);
+    println!(canary_traffic_command(state));
+    state = canary_traffic_step(state, "healthy", 5.0);
+    println!(canary_traffic_command(state));
+    state = canary_traffic_step(state, "ramp", 100.0);
+    println!(canary_traffic_command(state));
+    state = canary_traffic_step(state, "finish", 0.0);
+    println!(canary_traffic_command(state));
+    state = canary_traffic_step(state, "healthy", 100.0);
+    println!(canary_traffic_command(state));
+    state = canary_traffic_step(state, "finish", 0.0);
+    println!(canary_traffic_command(state));
+    println!(len(canary_traffic_step([], "bad", 0.0)));
+    println!(canary_traffic_command(canary_traffic_step(canary_traffic_start(), "unrecognized", 0.0)));
+    println!(len(canary_traffic_replay(args_new(), [1])));
+    let mut events = args_new();
+    events = args_push(events, "launch");
+    events = args_push(events, "healthy");
+    events = args_push(events, "ramp");
+    events = args_push(events, "healthy");
+    events = args_push(events, "finish");
+    println!(canary_traffic_command(canary_traffic_replay(events, [5, 5, 100, 100, 0])));
+    let branch_0 = canary_traffic_step([0, 0, 0], "launch", 1.0);
+    println!(at(branch_0, 0) == 1.0 && at(branch_0, 1) == 1.0 && canary_traffic_command(branch_0) == "apply_weight");
+    let branch_1 = canary_traffic_step([1, 0, 0], "healthy", 0.0);
+    println!(at(branch_1, 0) == 2.0 && at(branch_1, 1) == 0.0 && canary_traffic_command(branch_1) == "authorize_ramp");
+    let branch_2 = canary_traffic_step([1, 0, 0], "unhealthy", 0.0);
+    println!(at(branch_2, 0) == 3.0 && at(branch_2, 1) == 0.0 && canary_traffic_command(branch_2) == "route_baseline");
+    let branch_3 = canary_traffic_step([2, 0, 0], "ramp", 1.0);
+    println!(at(branch_3, 0) == 1.0 && at(branch_3, 1) == 1.0 && canary_traffic_command(branch_3) == "apply_weight");
+    let branch_4 = canary_traffic_step([2, 100, 0], "finish", 0.0);
+    println!(at(branch_4, 0) == 4.0 && at(branch_4, 1) == 100.0 && canary_traffic_command(branch_4) == "retire_baseline");
+}
